@@ -11,7 +11,7 @@ Making moves
 ```bash
 $ nix-shell
 ```
-```bash
+```
 $ python hello_flask.py
  * Serving Flask app "hello_flask" (lazy loading)
  * Environment: production
