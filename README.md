@@ -5,10 +5,13 @@ First foray into Flask. Trying, for now, to hold off from using `Class` and `@`.
 Needed things
 ---
   * [Nix](https://nixos.org/nix/)
+  * [SQLite Sample Database](http://www.sqlitetutorial.net/sqlite-sample-database/)
 
 Making moves
 ---
 ```bash
+$ curl http://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip > chinook.zip
+$ unzip chinook.zip -d ./
 $ nix-shell
 ```
 ```
