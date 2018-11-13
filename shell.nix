@@ -6,6 +6,7 @@ with pkgs; mkShell {
     buildInputs = [ python36
                     python36.pkgs.flask
                     python36.pkgs.pylint
+                    python36.pkgs.qrcode
                     python36.pkgs.sqlalchemy
                     fzf
                   ];

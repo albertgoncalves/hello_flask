@@ -1,5 +1,6 @@
 *
 !.gitignore
 !hello_flask.py
+!hello_qr.py
 !shell.nix
 !*.md
