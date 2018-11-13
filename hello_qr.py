@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import qrcode
 import PIL
+import qrcode
 
 if __name__ == "__main__":
     dim  = 200

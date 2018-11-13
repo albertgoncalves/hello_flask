@@ -4,8 +4,8 @@
 # and http://flask.pocoo.org/docs/1.0/api/#flask.Flask.add_url_rule
 # and http://www.sqlitetutorial.net/sqlite-sample-database/
 
-import json
 from datetime import datetime as dt
+import json
 
 from flask import Flask
 from sqlalchemy import create_engine
@@ -35,7 +35,7 @@ def username(name):
 def check_type(input_val, output_type, default_val):
     try:
         val = output_type(input_val)
-    except ValueError:  # read: TypeError !
+    except (ValueError, TypeError):
         val = default_val
     return val
 
