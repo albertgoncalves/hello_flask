@@ -15,7 +15,7 @@ def gen_qr(data):
     qr = qrcode.QRCode( version         =1
                       , error_correction=qrcode.constants.ERROR_CORRECT_L
                       , box_size        =10  # scale image size
-                      , border          =4
+                      , border          =2
                       )
     qr.add_data(data)
     qr.make(fit=True)
@@ -30,7 +30,7 @@ def export_qr(qr, dim, fn):
 def main():
     dim = 200
     fn  = "api_demo.png"
-    url = id_url(99)
+    url = id_url(51)
     qr  = gen_qr(url)
     export_qr(qr, dim, fn)
 
