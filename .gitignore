@@ -1,0 +1,4 @@
+*
+!.gitignore
+!hello_flask.py
+!shell.nix
