@@ -11,9 +11,12 @@ from api_demo_funs import check_type
 from api_demo_funs import sanitize_id
 
 # side-effects
+def user_agent_headers():
+    return "User-Agent", None
+
 def echo_id(item_id):
-    user_agent = flask_request.headers.get('User-Agent', None)
-    sanitize   = check_type(item_id, int, 0)
+    user_agent = flask_request.headers.get(*user_agent_headers())
+    sanitize   = check_type(item_id, int)
     rtn_str    = "item id: {}<br>user_agent: {}<br>now: {}"
     return rtn_str.format(sanitize, user_agent, dt.now())
 
@@ -37,7 +40,7 @@ def query(db_conn):
 
 def insert(db_conn):
     def ins(item_id):
-        user_agent = flask_request.headers.get('User-Agent', None)
+        user_agent = flask_request.headers.get(*user_agent_headers())
         ins_char = sanitize_id(item_id)
 
         ins_str = """INSERT INTO tbl1(item_id, header) VALUES({}, '{}')
@@ -52,7 +55,7 @@ def insert(db_conn):
 def main():
     app      = Flask(__name__)
     app_cons = app_init(app)
-    db_conn  = create_engine('sqlite:///hello.db')
+    db_conn  = create_engine("sqlite:///hello.db")
 
     pages = [ ("/echo/<item_id>"  , "echo_id", echo_id        )
             , ("/query"           , "query"  , query(db_conn) )
@@ -62,7 +65,9 @@ def main():
     for page in pages:
         app_cons(*page)
 
-    app.run(debug=True, port=5002, host='192.168.1.52')
+    local_ip = "133"
+    # local_ip = "52"
+    app.run(debug=True, port=5002, host="192.168.1.{}".format(local_ip))
 
 if __name__ == "__main__":
     main()
