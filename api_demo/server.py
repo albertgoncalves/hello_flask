@@ -8,6 +8,7 @@ from flask.app import request as flask_request
 from sqlalchemy import create_engine
 
 from funs import check_type
+from funs import local_ip
 from funs import sanitize_id
 
 # side-effects
@@ -65,9 +66,7 @@ def main():
     for page in pages:
         app_cons(*page)
 
-    local_ip = "133"
-    # local_ip = "52"
-    app.run(debug=True, port=5002, host="192.168.1.{}".format(local_ip))
+    app.run(debug=True, port=5002, host=local_ip())
 
 if __name__ == "__main__":
     main()

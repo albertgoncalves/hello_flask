@@ -4,14 +4,13 @@
 import PIL
 import qrcode
 
+from funs import local_ip
 from funs import sanitize_id
 
 # pure functions
 def id_url(item_id):
     ins_char = sanitize_id(item_id)
-    local_ip = "133"
-    # local_ip = "52"
-    return "http://192.168.1.{}:5002/insert/{}".format(local_ip, ins_char)
+    return "http://{}:5002/insert/{}".format(local_ip(), ins_char)
 
 def gen_qr(data):
     qr = qrcode.QRCode( version         =1

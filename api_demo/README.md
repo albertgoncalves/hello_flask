@@ -6,6 +6,7 @@ Needed things
 ---
   * [Nix](https://nixos.org/nix/)
   * `../shell.nix`
+  * Local IP address
 
 Making moves
 ---
@@ -14,12 +15,16 @@ $ cd ../ && nix-shell
 ```
 ```bash
 $ cd api_demo/
+```
+
+Create a file named `ip` with your local ip address. Something like this would do the trick:
+```bash
+$ echo 123.456.7.89 > ip
+```
+
+```bash
 $ python qr.py
-```
-```bash
 $ sh init_db.sh
-```
-```bash
 $ python server.py
  * Serving Flask app "server" (lazy loading)
  * Environment: production

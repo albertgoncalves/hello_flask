@@ -18,3 +18,9 @@ def check_type(input_val, output_type):
     except (ValueError, TypeError):
         val = None
     return val
+
+# side-effects
+def local_ip():
+    with open('ip', 'r') as f:
+        local_ip = f.read().replace('\n', '')
+    return local_ip
