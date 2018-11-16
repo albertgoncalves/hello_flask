@@ -26,3 +26,12 @@ $ python hello_flask.py
  * Debugger is active!
  ...
 ```
+
+---
+The fruit of our labor:
+  * <http://localhost:5002/>
+  * <http://localhost:5002/index>
+  * <http://localhost:5002/blob/foo>
+  * <http://localhost:5002/now>
+  * <http://localhost:5002/user/yourname>
+  * <http://localhost:5002/user/query/4>
