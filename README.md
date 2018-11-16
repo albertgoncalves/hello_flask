@@ -27,7 +27,7 @@ $ python hello_flask.py
  ...
 ```
 
-The fruit of our labor:
+The fruits of our labor
 ---
   * <http://localhost:5002/>
   * <http://localhost:5002/index>
