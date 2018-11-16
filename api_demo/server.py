@@ -7,8 +7,8 @@ from flask import Flask
 from flask.app import request as flask_request
 from sqlalchemy import create_engine
 
-from api_demo_funs import check_type
-from api_demo_funs import sanitize_id
+from funs import check_type
+from funs import sanitize_id
 
 # side-effects
 def user_agent_headers():
@@ -31,7 +31,7 @@ def run_query(db_conn, query_str):
 
 def query(db_conn):
     def qry():
-        qry_str = "SELECT * FROM tbl1;"
+        qry_str = "SELECT * FROM qrs;"
         data    = run_query(db_conn, qry_str)
         result  = \
             {"data": [dict(zip(tuple(data.keys()), i)) for i in data.cursor]}
@@ -43,7 +43,7 @@ def insert(db_conn):
         user_agent = flask_request.headers.get(*user_agent_headers())
         ins_char = sanitize_id(item_id)
 
-        ins_str = """INSERT INTO tbl1(item_id, header) VALUES({}, '{}')
+        ins_str = """INSERT INTO qrs(item_id, header) VALUES({}, '{}')
                   """.format(ins_char, user_agent)
         run_query(db_conn, ins_str)
 
@@ -55,7 +55,7 @@ def insert(db_conn):
 def main():
     app      = Flask(__name__)
     app_cons = app_init(app)
-    db_conn  = create_engine("sqlite:///hello.db")
+    db_conn  = create_engine("sqlite:///qr.db")
 
     pages = [ ("/echo/<item_id>"  , "echo_id", echo_id        )
             , ("/query"           , "query"  , query(db_conn) )

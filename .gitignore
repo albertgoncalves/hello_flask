@@ -5,3 +5,4 @@
 !*.sh
 !shell.nix
 !*.md
+!api_demo/

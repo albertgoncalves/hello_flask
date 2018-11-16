@@ -4,12 +4,14 @@
 import PIL
 import qrcode
 
-from api_demo_funs import sanitize_id
+from funs import sanitize_id
 
 # pure functions
 def id_url(item_id):
     ins_char = sanitize_id(item_id)
-    return "http://192.168.1.52:5002/insert/{}".format(ins_char)
+    local_ip = "133"
+    # local_ip = "52"
+    return "http://192.168.1.{}:5002/insert/{}".format(local_ip, ins_char)
 
 def gen_qr(data):
     qr = qrcode.QRCode( version         =1
@@ -29,7 +31,7 @@ def export_qr(qr, dim, fn):
 
 def main():
     dim = 200
-    fn  = "api_demo.png"
+    fn  = "qr.png"
     url = id_url(51)
     qr  = gen_qr(url)
     export_qr(qr, dim, fn)

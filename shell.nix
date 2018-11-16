@@ -9,6 +9,7 @@ with pkgs; mkShell {
                     python36.pkgs.pylint
                     python36.pkgs.qrcode
                     python36.pkgs.sqlalchemy
+                    sqlite
                     fzf
                   ];
 
