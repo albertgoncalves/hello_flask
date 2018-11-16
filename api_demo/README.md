@@ -36,6 +36,7 @@ $ python server.py
 
 Running `qr.py` should have created `qr.png`; scanning this file will produce a URL. Visit the URL to insert a timestamped row into the newly minted `sqlite3` database through the API-esque pipeline being served up in `server.py`.
 
+---
 Head over to the database to check out the created data:
 ```bash
 $ sqlite3 qr.db
