@@ -24,7 +24,7 @@ def gen_qr(data):
 
 # side-effects
 def export_qr(qr, dim, fn):
-    img = qr.make_image(fill_color="black", back_color="white")
+    img = qr.make_image(fill_color="white", back_color="black")
     img = img.resize((dim, dim), PIL.Image.ANTIALIAS)
     img.save(fn)
 
