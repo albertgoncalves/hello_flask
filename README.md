@@ -15,7 +15,7 @@ $ unzip chinook.zip -d ./
 $ nix-shell
 ```
 ```
-$ python hello_flask.py
+[nix-shell:~/hello_flask]$ python hello_flask.py
  * Serving Flask app "hello_flask" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.

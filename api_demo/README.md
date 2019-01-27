@@ -10,22 +10,20 @@ Needed things
 
 Making moves
 ---
-```bash
-$ cd ../ && nix-shell
-```
-```bash
-$ cd api_demo/
-```
-
 Create a file named `ip` with your local IP address. Something like this would do the trick:
 ```bash
 $ echo 123.456.7.89 > ip
 ```
 
 ```bash
-$ python qr.py
-$ sh init_db.sh
-$ python server.py
+$ cd ../ && nix-shell
+[nix-shell:~/hello_flask]$ cd api_demo/
+```
+
+```bash
+[nix-shell:~/hello_flask/api_demo]$ python qr.py
+[nix-shell:~/hello_flask/api_demo]$ sh init_db.sh
+[nix-shell:~/hello_flask/api_demo]$ python server.py
  * Serving Flask app "server" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
@@ -39,7 +37,7 @@ Running `qr.py` should have created `qr.png`; scanning this file will produce a 
 If everything worked...
 ---
 ```bash
-$ sqlite3 qr.db
+[nix-shell:~/hello_flask/api_demo]$ sqlite3 qr.db
 ```
 ```
 sqlite> SELECT * FROM qrs;
